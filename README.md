@@ -1,5 +1,5 @@
 # FitnessClub19KT
-Корчевный Александр 3-ИСП9-19ВБ
+Teimurov Ruslan 3-ИСП9-19ВБ
 
 <h1>БД</h1>
 
