@@ -45,6 +45,12 @@
                         Content="СПИСОК УСЛУГ"
                         FontFamily="Bahnschrift SemiBold SemiCondensed"
                         Margin="0 0 25 0" Click="BtnServiceList_Click"/>
+                <Button x:Name="BtnClientList"
+                        Style="{DynamicResource BtnStyle}"
+                        Height="60"
+                        Width="200"
+                        Content="CПИСОК КЛИЕНТОВ"
+                        FontFamily="Bahnschrift SemiBold SemiCondensed" Click="BtnClientList_Click"/>
                 <Button x:Name="BtnAddEdit"
                         Style="{DynamicResource BtnStyle}"
                         Height="60"
@@ -54,8 +60,20 @@
                         Margin="25 0 0 0" Click="BtnAddEdit_Click"/>
             </StackPanel>
 
+            <StackPanel Grid.Row="1" 
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center">
+                <Button x:Name="BtnGoToCart"
+                        Style="{DynamicResource ImgBtnStyle}"
+                        Height="30"
+                        Width="30"
+                        Margin="0 0 47 0"
+                        Click="BtnGoToCart_Click">
+                    <Image Source="/Assets/Cart.png"/>
+                </Button>
+            </StackPanel>
             <!--ListServiceStart-->
-            <Frame x:Name="FrListService" 
+            <Frame x:Name="FrList" 
                    NavigationUIVisibility="Hidden"
                    Grid.Row="2"/>
             <!--ListServiceEnd-->
