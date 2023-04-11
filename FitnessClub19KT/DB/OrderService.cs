@@ -10,13 +10,16 @@
 namespace FitnessClub19KT.DB
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class sp_helpdiagrams_Result
+    public partial class OrderService
     {
-        public string Database { get; set; }
-        public string Name { get; set; }
-        public int ID { get; set; }
-        public string Owner { get; set; }
-        public int OwnerID { get; set; }
+        public int IdOrderService { get; set; }
+        public int idOrder { get; set; }
+        public int idService { get; set; }
+        public int Count { get; set; }
+    
+        public virtual Order Order { get; set; }
+        public virtual Service Service { get; set; }
     }
 }

@@ -21,44 +21,43 @@ using System.IO;
 namespace FitnessClub19KT.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для ListClient.xaml
+    /// Логика взаимодействия для ClientList.xaml
     /// </summary>
-    public partial class ListClient : Page
+    public partial class ClientList : Page
     {
-        public ListClient()
+        public ClientList()
         {
             InitializeComponent();
             GetClientList();
         }
+
         private void GetClientList()
         {
+
             List<Client> clientList = new List<Client>();
 
-            
-            
             clientList = EFClass.context.Client.ToList();
 
-            LvClient.ItemsSource = clientList;
-        }
-
-        private void BtnAddClient_Click(object sender, RoutedEventArgs e)
-        {
-            //AddEditClient addEditClient = new AddEditClient();
-            //addEditClient.Show();
+            LvClient.ItemsSource = clientList; 
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
-            if (button == null )
+            if (button == null)
             {
                 return;
             }
+            var service = button.DataContext as Service;
+        }
 
-            var client = button.DataContext as Client;
+        private void TbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            GetClientList();
+        }
 
-            //AddEditClient addEditClient = new AddEditClient();
-            //addEditClient.Show();
+        private void CmbSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
             GetClientList();
         }
     }

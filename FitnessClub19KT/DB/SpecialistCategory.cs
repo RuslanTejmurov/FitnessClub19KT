@@ -10,10 +10,20 @@
 namespace FitnessClub19KT.DB
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class sp_helpdiagramdefinition_Result
+    public partial class SpecialistCategory
     {
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public SpecialistCategory()
+        {
+            this.Employeer = new HashSet<Employeer>();
+        }
+    
+        public int idSpecialistCategory { get; set; }
+        public string Title { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Employeer> Employeer { get; set; }
     }
 }

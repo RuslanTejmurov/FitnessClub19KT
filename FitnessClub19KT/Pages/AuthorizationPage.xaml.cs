@@ -27,19 +27,26 @@ namespace FitnessClub19KT.Pages
         public AuthorizationPage()
         {
             InitializeComponent();
+            
         }
         private void btnSignIn_Click(object sender, RoutedEventArgs e)
         {
-            var authuser = ClassHelper.EFClass.context.Authorization.ToList()
+            var authuser = EFClass.context.Authorization.ToList()
                 .Where(x => x.Login == TbLogin.Text && x.Password == PbPassword.Password)
                 .FirstOrDefault();
-                
-            if (authuser != null)
-            {
-                UserClass.AuthUser = authuser;
 
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
+            if (authuser.IdRole == 1)
+            {
+               MainWindow.Auth(authuser).Show();
+            }
+            else if (authuser.IdRole ==2 )
+            {
+                ManagementWindow.Auth(authuser).Show();
+            } 
+            else if (authuser.IdRole == 3)
+            {
+
+                MainCoachWindow.Auth(authuser).Show();
             }
             else
             {
